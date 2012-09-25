@@ -1,7 +1,3 @@
-configure :development, :test do
-    set :database, 'sqlite://development.db'
-end
-
 configure :production do
   # Database connection
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
@@ -13,5 +9,8 @@ configure :production do
     :database => db.path[1..-1],
     :encoding => 'utf8'
   )
+end
 
+configure :test, :development do
+	set :database, 'sqlite://development.db'
 end
