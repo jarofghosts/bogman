@@ -5,6 +5,8 @@ class CreateThings < ActiveRecord::Migration
   		t.text :definition
 
   		t.timestamps
+
+  	end
   end
 
   def down
