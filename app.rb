@@ -1,5 +1,15 @@
+require './config/env'
 require 'sinatra'
+require 'sinatra/activerecord'
 
 get '/' do
-	"Hello, world!"
+	erb :index
+end
+
+get ':thing/is'
+	erb :thinger
+end
+
+get ':thing/is/*'
+	erb :thingify
 end
