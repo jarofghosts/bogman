@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem "sinatra", :require => "sinatra/base"
 gem "sinatra-activerecord"
+gem "rake"
 
 group :development, :test do
 	gem "sqlite3"
