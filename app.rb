@@ -1,28 +1,23 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'json'
 require './config/env'
 
 class Thing < ActiveRecord::Base
-  def self.whatis (thing_name)
-    where(:thing => thing_name).first
-  end
 end
 
 get '/' do
 	erb :index
 end
 
-post '/:thing/is/:description' do
-  thing = Thing.new do |t|
-    t.thing = params[:thing]
-    t.description = params[:description]
-  end
-  thing.save
-  redirect to( '/' + params[:thing] + '/is')
+post '/:thing/is/:definition' do
+
+  thing = Thing.create( :thing => params[:thing], :definition => params[:definition])
+  thing.to_json
 end
 
 get '/:thing/is' do
-  Thing.whatis(params[:thing])
+  Thing.where(:thing => params[:thing]).to_json
 end
 
 delete '*' do

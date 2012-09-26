@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 gem "sinatra"
-gem "sinatra-activerecord"
 gem "rake"
+gem "activerecord"
+gem "sinatra-activerecord"
 
 group :development, :test do
 	gem "sqlite3"

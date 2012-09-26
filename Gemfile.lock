@@ -25,9 +25,6 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
-    sinatra-activerecord (1.1.1)
-      activerecord (~> 3.0)
-      sinatra (~> 1.0)
     sqlite3 (1.3.6)
     tilt (1.3.3)
     tzinfo (0.3.33)
@@ -36,8 +33,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   pg
   rake
   sinatra
-  sinatra-activerecord
   sqlite3
