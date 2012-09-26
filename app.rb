@@ -11,9 +11,8 @@ get '/' do
 end
 
 post '/:thing/is/:definition' do
-
-  thing = Thing.create( :thing => params[:thing], :definition => params[:definition])
-  thing.to_json
+  thing = Thing.create( :thing => params[:thing], :definition => params[:definition]) unless Thing.exists?(:thing => params[:thing])
+  Thing.where(:thing => params[:thing]).to_json
 end
 
 get '/:thing/is' do
