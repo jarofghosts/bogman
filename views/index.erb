@@ -4,6 +4,8 @@
 		<title>THE LEGEND</title>
 	</head>
 	<body>
-		Hello.
+	<% @things.each do |thing| %>
+	<%=  thing.thing + " is " + thing.definition + "<br/>" %>
+	<% end %>
 	</body>
 </html>

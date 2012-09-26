@@ -7,6 +7,7 @@ class Thing < ActiveRecord::Base
 end
 
 get '/' do
+	@things = Thing.last(10)
 	erb :index
 end
 
