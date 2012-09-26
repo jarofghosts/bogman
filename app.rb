@@ -3,7 +3,7 @@ require 'sinatra/activerecord'
 require './config/env'
 
 class Thing < ActiveRecord::Base
-  def self.whatis(thing_name)
+  def self.whatis (thing_name)
     where(:thing => thing_name).first
   end
 end
