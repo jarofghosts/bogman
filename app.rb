@@ -12,17 +12,16 @@ get '/' do
 end
 
 get '/:number/things' do
-	number = params[:number] <= 50 ? params[:number] : 50;
-	Thing.take(number).to_json
+	number = params[:number].to_i <= 50 ? params[:number].to_i : 50;
+	Thing.last(number).to_json
 end
-
 get '/:number/old/things' do
-	number = params[:number] <= 50 ? params[:number] : 50;
+	number = params[:number].to_i <= 50 ? params[:number].to_i : 50;
 	Thing.first(number).to_json
 end
 
 get '/:number/new/things' do
-	number = params[:number] <= 50 ? params[:number] : 50;
+	number = params[:number].to_i <= 50 ? params[:number].to_i : 50;
 	Thing.last(number).to_json
 end
 
