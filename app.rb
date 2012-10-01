@@ -15,6 +15,7 @@ get '/:number/things' do
 	number = params[:number].to_i <= 50 ? params[:number].to_i : 50;
 	Thing.last(number).to_json
 end
+
 get '/:number/old/things' do
 	number = params[:number].to_i <= 50 ? params[:number].to_i : 50;
 	Thing.first(number).to_json
@@ -26,7 +27,7 @@ get '/:number/new/things' do
 end
 
 post '/:thing/is/:definition' do
-  thing = Thing.create( :thing => params[:thing], :definition => params[:definition]) unless Thing.exists?(:thing => params[:thing])
+  Thing.create( :thing => params[:thing], :definition => params[:definition]) unless Thing.exists?(:thing => params[:thing])
   Thing.where(:thing => params[:thing]).to_json
 end
 
