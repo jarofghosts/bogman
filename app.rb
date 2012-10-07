@@ -31,6 +31,15 @@ post '/:thing/is/:definition' do
   Thing.where(:thing => params[:thing]).to_json
 end
 
+post '/define' do
+  Thing.create( :thing => params[:thing], :definition => params[:definition]) unless Thing.exists?(:thing => params[:thing])
+  Thing.where(:thing => params[:thing]).to_json
+end
+
+get '/define' do
+	Thing.where(:thing => params[:thing]).to_json	
+end
+
 get '/:thing/is' do
   Thing.where(:thing => params[:thing]).to_json
 end
